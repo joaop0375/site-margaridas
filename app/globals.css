@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Soft Beige/Cream - Main Background */
+    --background: 30 50% 98%;
+    /* #FDFBF9 */
+
+    /* Dark Warm Brown - Text/Foreground */
+    --foreground: 25 20% 25%;
+    /* #4A3B32 */
+
+    /* Sage Green - Primary Accents/Buttons */
+    --primary: 100 10% 60%;
+    /* #8F9E8B - muted green */
+    --primary-foreground: 30 50% 98%;
+
+    /* Gold/Bronze - Decorative/Secondary */
+    --secondary: 45 40% 60%;
+    /* #C5A059 - gold-ish */
+    --secondary-foreground: 25 20% 25%;
+
+    /* Light Cream - Cards */
+    --card: 30 30% 96%;
+    /* #F9F5F1 */
+    --card-foreground: 25 20% 25%;
+
+    /* Warm Grey/Taupe - Muted elements */
+    --muted: 30 15% 85%;
+    --muted-foreground: 25 10% 45%;
+
+    --popover: 30 50% 98%;
+    --popover-foreground: 25 20% 25%;
+
+    --accent: 45 30% 90%;
+    --accent-foreground: 25 20% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: 100 10% 60%;
+
+    --radius: 0.75rem;
+    /* Slightly more rounded for elegance */
+  }
+
+  /* Dark mode - Deep warm grays/browns instead of pure black */
+  .dark {
+    --background: 25 15% 15%;
+    --foreground: 30 30% 96%;
+
+    --card: 25 15% 18%;
+    --card-foreground: 30 30% 96%;
+
+    --popover: 25 15% 15%;
+    --popover-foreground: 30 30% 96%;
+
+    --primary: 100 10% 50%;
+    --primary-foreground: 30 30% 96%;
+
+    --secondary: 45 30% 50%;
+    --secondary-foreground: 30 30% 96%;
+
+    --muted: 25 10% 25%;
+    --muted-foreground: 30 10% 65%;
+
+    --accent: 25 15% 20%;
+    --accent-foreground: 30 30% 96%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 30 30% 96%;
+
+    --border: 25 15% 25%;
+    --input: 25 15% 25%;
+    --ring: 100 10% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-image: url('/floral-bg.png');
+    background-repeat: repeat;
+    background-size: 500px;
+    background-position: center top;
+    /* Removed blend-mode overlay as it might be washing out the image on light backgrounds */
+    background-attachment: fixed;
+  }
+}
