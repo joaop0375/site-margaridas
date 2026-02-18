@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function HeroSection() {
     return (
@@ -12,9 +13,9 @@ export function HeroSection() {
                     <p className="text-muted-foreground text-lg md:text-xl max-w-[500px] leading-relaxed">
                         Atendimento personalizado com produtos veganos e exclusivos para o seu bem-estar.
                     </p>
-                    <button className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    <Link href="https://wa.me/5599999999999" target="_blank" className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block">
                         Agendar horário
-                    </button>
+                    </Link>
                 </div>
 
                 {/* Image Placeholder - resembling the soft girl image */}

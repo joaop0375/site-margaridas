@@ -4,18 +4,18 @@
 
 @layer base {
   :root {
-    /* Soft Beige/Cream - Main Background */
-    --background: 30 50% 98%;
-    /* #FDFBF9 */
+    /* Soft Orange/Beige - Main Background (#F2E9D9) */
+    --background: 36 50% 90%;
+    /* #F2E9D9 */
 
     /* Dark Warm Brown - Text/Foreground */
     --foreground: 25 20% 25%;
     /* #4A3B32 */
 
-    /* Sage Green - Primary Accents/Buttons */
-    --primary: 100 10% 60%;
-    /* #8F9E8B - muted green */
-    --primary-foreground: 30 50% 98%;
+    /* Muted Green - Primary Accents/Buttons (#67734C) */
+    --primary: 80 20% 37%;
+    /* #67734C */
+    --primary-foreground: 36 50% 90%;
 
     /* Gold/Bronze - Decorative/Secondary */
     --secondary: 45 40% 60%;

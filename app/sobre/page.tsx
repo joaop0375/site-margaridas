@@ -2,46 +2,123 @@ import Image from "next/image";
 
 export default function SobrePage() {
     return (
-        <main className="container mx-auto px-4 py-16">
-            {/* Hero-like intro */}
-            <section className="grid md:grid-cols-2 gap-12 items-center mb-24">
-                <div className="space-y-6">
-                    <div className="space-y-2">
-                        <h1 className="text-4xl font-bold tracking-tight lg:text-5xl font-serif text-primary">Nossa História</h1>
-                        <p className="text-xl font-medium text-muted-foreground">Fernanda, Fabiane e Ana Gabriela</p>
-                    </div>
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                        Somos uma empresa especializada na área da beleza, oferecendo diversos serviços como escovas, design de sobrancelhas e tratamentos capilares, proporcionando também um verdadeiro momento de autocuidado, bem-estar e renovação.
+    return (
+        <main className="bg-background min-h-screen">
+            {/* Hero Section */}
+            <section className="relative py-24 md:py-32 overflow-hidden">
+                <div className="absolute inset-0 bg-secondary/10 pointer-events-none"></div>
+                <div className="container relative z-10 px-4 md:px-6 text-center space-y-6">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-primary">Nossa História</h1>
+                    <p className="text-xl md:text-2xl font-medium text-muted-foreground max-w-2xl mx-auto">
+                        De um sonho construído com propósito para um refúgio de beleza e autocuidado.
                     </p>
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                        Cada serviço é pensado para proporcionar desaceleração, em um ambiente calmo, acolhedor e terapêutico. Temos muitas clientes que nos indicam e estão conosco desde o início, o que reforça a confiança e o carinho pelo nosso trabalho.
-                    </p>
+                    <div className="w-24 h-1 bg-primary/40 mx-auto rounded-full"></div>
                 </div>
-                <div className="relative aspect-square md:aspect-video rounded-2xl overflow-hidden bg-muted">
-                    <div className="absolute inset-0 bg-secondary/30 flex items-center justify-center text-muted-foreground/50">
-                        <span className="text-lg">Equipe Margaridas</span>
+            </section>
+
+            {/* The Story & Team */}
+            <section className="py-16 md:py-24">
+                <div className="container px-4 md:px-6">
+                    <div className="grid lg:grid-cols-2 gap-16 items-start">
+                        {/* Narrative */}
+                        <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+                            <p>
+                                O <strong className="text-primary font-serif">Margaridas Beauty</strong> nasceu de um sonho planejado e construído com propósito. Antes de se tornar um salão de beleza, a marca teve origem em uma loja de acessórios para cabelo, onde cada peça era produzida manualmente, refletindo cuidado, delicadeza e identidade.
+                            </p>
+                            <p>
+                                Somos três sócias com trajetórias diferentes, unidas pelo mesmo objetivo: oferecer um atendimento humanizado e personalizado na área da beleza.
+                            </p>
+                            <p>
+                                Desde o início, o Margaridas Beauty foi idealizado para ser um ambiente tranquilo, acolhedor e terapêutico, onde cada cliente é atendida de forma única, respeitando sua individualidade, necessidades e desejos.
+                            </p>
+                        </div>
+
+                        {/* Team Image/Graphic */}
+                        <div className="relative">
+                            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-muted relative z-10">
+                                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20"></div>
+                                <div className="flex items-center justify-center h-full text-muted-foreground font-serif text-2xl bg-background/50">
+                                    Foto da Equipe
+                                </div>
+                            </div>
+                            {/* Decorative background element */}
+                            <div className="absolute -top-6 -right-6 w-full h-full border-2 border-secondary rounded-2xl -z-0 hidden md:block"></div>
+                        </div>
+                    </div>
+
+                    {/* Team Cards */}
+                    <div className="mt-24 grid md:grid-cols-3 gap-8">
+                        {/* Fabi */}
+                        <div className="bg-card hover:shadow-lg transition-all duration-300 p-8 rounded-2xl border border-border/50 flex flex-col items-center text-center space-y-4 group">
+                            <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">
+                                🌷
+                            </div>
+                            <h3 className="text-2xl font-serif text-foreground">Fabi</h3>
+                            <p className="text-xs uppercase tracking-widest text-primary font-bold">Designer de Sobrancelhas</p>
+                            <p className="text-muted-foreground text-sm leading-relaxed">
+                                Atuava no mercado de luxo e encontrou na beleza um novo caminho. Traz precisão, sensibilidade e atenção aos detalhes.
+                            </p>
+                        </div>
+
+                        {/* Fernanda */}
+                        <div className="bg-card hover:shadow-lg transition-all duration-300 p-8 rounded-2xl border border-border/50 flex flex-col items-center text-center space-y-4 group">
+                            <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">
+                                💆‍♀️
+                            </div>
+                            <h3 className="text-2xl font-serif text-foreground">Fernanda</h3>
+                            <p className="text-xs uppercase tracking-widest text-primary font-bold">Cabeleireira e Terapeuta</p>
+                            <p className="text-muted-foreground text-sm leading-relaxed">
+                                Com mais de 10 anos de experiência, enxerga no atendimento uma forma de cuidado e transformação com amor e dedicação.
+                            </p>
+                        </div>
+
+                        {/* Gabriela */}
+                        <div className="bg-card hover:shadow-lg transition-all duration-300 p-8 rounded-2xl border border-border/50 flex flex-col items-center text-center space-y-4 group">
+                            <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">
+                                💄
+                            </div>
+                            <h3 className="text-2xl font-serif text-foreground">Gabriela</h3>
+                            <p className="text-xs uppercase tracking-widest text-primary font-bold">Penteadora e Maquiadora</p>
+                            <p className="text-muted-foreground text-sm leading-relaxed">
+                                Especialista em cabelos com curvatura, cresceu acompanhando a mãe e transformou o desejo de empreender em realidade.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Values */}
-            <section className="grid sm:grid-cols-3 gap-8 text-center bg-card border p-12 rounded-3xl shadow-sm">
-                <div className="space-y-3">
-                    <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mx-auto shadow-sm text-2xl">🌿</div>
-                    <h3 className="font-bold text-xl text-primary">Autocuidado</h3>
-                    <p className="text-muted-foreground text-sm">Um momento pensado para sua renovação pessoal.</p>
-                </div>
-                <div className="space-y-3">
-                    <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mx-auto shadow-sm text-2xl">✨</div>
-                    <h3 className="font-bold text-xl text-primary">Personalização</h3>
-                    <p className="text-muted-foreground text-sm">Serviços definidos em conjunto com você.</p>
-                </div>
-                <div className="space-y-3">
-                    <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mx-auto shadow-sm text-2xl">💖</div>
-                    <h3 className="font-bold text-xl text-primary">Acolhimento</h3>
-                    <p className="text-muted-foreground text-sm">Ambiente calmo e terapêutico.</p>
+            {/* Values Section */}
+            <section className="py-20 bg-secondary/10">
+                <div className="container px-4 md:px-6">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-serif text-primary">Nossos Valores</h2>
+                    </div>
+                    <div className="grid sm:grid-cols-3 gap-8 text-center">
+                        <div className="space-y-4 p-6 hover:bg-background/50 rounded-xl transition-colors duration-300">
+                            <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center mx-auto shadow-sm text-3xl text-primary">
+                                🌿
+                            </div>
+                            <h3 className="font-bold text-xl text-foreground">Autocuidado</h3>
+                            <p className="text-muted-foreground">Um momento pensado exclusivamente para sua renovação pessoal e bem-estar.</p>
+                        </div>
+                        <div className="space-y-4 p-6 hover:bg-background/50 rounded-xl transition-colors duration-300">
+                            <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center mx-auto shadow-sm text-3xl text-primary">
+                                ✨
+                            </div>
+                            <h3 className="font-bold text-xl text-foreground">Personalização</h3>
+                            <p className="text-muted-foreground">Serviços definidos em conjunto com você, respeitando sua essência.</p>
+                        </div>
+                        <div className="space-y-4 p-6 hover:bg-background/50 rounded-xl transition-colors duration-300">
+                            <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center mx-auto shadow-sm text-3xl text-primary">
+                                💖
+                            </div>
+                            <h3 className="font-bold text-xl text-foreground">Acolhimento</h3>
+                            <p className="text-muted-foreground">Ambiente calmo, terapêutico e preparado para receber você.</p>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
+    );
     );
 }

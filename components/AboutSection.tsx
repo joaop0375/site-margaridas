@@ -25,13 +25,13 @@ export function AboutSection() {
 
                         <div className="space-y-4 text-muted-foreground leading-relaxed">
                             <p className="font-medium text-foreground/80">
-                                Somos Gabriela, Fernanda e equipe.
+                                Somos Fernanda, Fabi e Gabriela.
                             </p>
                             <p>
-                                Unidas pela paixão pela beleza, criamos o Margaridas Beauty para ser um refúgio de autocuidado e renovação. Nossa missão é proporcionar momentos únicos de bem-estar.
+                                O Margaridas Beauty nasceu de um sonho que começou em uma loja de acessórios e hoje se transformou em um espaço de cuidado e beleza.
                             </p>
                             <p>
-                                Atendimento acolhedor, personalizado e com produtos de alta qualidade, ressaltando a beleza natural de cada cliente.
+                                Unidas pelo propósito de oferecer um atendimento humanizado, trazemos precisão, amor e dedicação em cada serviço, respeitando a individualidade de cada cliente.
                             </p>
                         </div>
                     </div>
