@@ -10,19 +10,28 @@ export default function PortfolioPage() {
                 </p>
             </div>
 
-            <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                {[1, 2, 3, 4, 5, 6].map((item) => (
-                    <div key={item} className="break-inside-avoid relative rounded-xl overflow-hidden group">
-                        {/* Use placeholders that simulate vertical/horizontal images */}
-                        <div className={`w-full bg-muted flex items-center justify-center text-muted-foreground/30 text-4xl font-serif ${item % 2 === 0 ? 'aspect-[3/4]' : 'aspect-square'}`}>
-                            Margaridas
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {[
+                    { src: "/images/portfolio/portfolio-1.jpg", title: "Design de Sobrancelhas", category: "Olhar" },
+                    { src: "/images/portfolio/portfolio-2.jpg", title: "Produção de Beleza", category: "Makeup & Hair" },
+                    { src: "/images/portfolio/portfolio-3.jpg", title: "Produção Completa", category: "Estilo" },
+                    { src: "/images/portfolio/portfolio-5.jpg", title: "Iluminação", category: "Cabelo" },
+                ].map((item, index) => (
+                    <div key={index} className="group relative rounded-xl overflow-hidden shadow-lg h-[500px]">
+                        <div className="relative w-full h-full">
+                            <Image
+                                src={item.src}
+                                alt={item.title}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
                         </div>
 
                         {/* Overlay */}
-                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <div className="text-center text-white p-4">
-                                <h3 className="font-bold text-xl">Realinhamento Vegano</h3>
-                                <p className="text-sm opacity-80">Antes & Depois</p>
+                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 pt-20 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                            <div className="text-white">
+                                <p className="text-xs font-medium uppercase tracking-wider text-primary mb-1">{item.category}</p>
+                                <h3 className="font-bold text-2xl font-serif">{item.title}</h3>
                             </div>
                         </div>
                     </div>

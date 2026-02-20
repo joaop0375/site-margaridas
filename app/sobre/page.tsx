@@ -1,8 +1,9 @@
 import Image from "next/image";
+import { Flower, Sparkles, Palette, Leaf, Heart } from "lucide-react";
 
 export default function SobrePage() {
     return (
-    return (
+
         <main className="bg-background min-h-screen">
             {/* Hero Section */}
             <section className="relative py-24 md:py-32 overflow-hidden">
@@ -50,8 +51,8 @@ export default function SobrePage() {
                     <div className="mt-24 grid md:grid-cols-3 gap-8">
                         {/* Fabi */}
                         <div className="bg-card hover:shadow-lg transition-all duration-300 p-8 rounded-2xl border border-border/50 flex flex-col items-center text-center space-y-4 group">
-                            <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">
-                                🌷
+                            <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+                                <Flower className="w-10 h-10 text-primary" />
                             </div>
                             <h3 className="text-2xl font-serif text-foreground">Fabi</h3>
                             <p className="text-xs uppercase tracking-widest text-primary font-bold">Designer de Sobrancelhas</p>
@@ -62,8 +63,8 @@ export default function SobrePage() {
 
                         {/* Fernanda */}
                         <div className="bg-card hover:shadow-lg transition-all duration-300 p-8 rounded-2xl border border-border/50 flex flex-col items-center text-center space-y-4 group">
-                            <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">
-                                💆‍♀️
+                            <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+                                <Sparkles className="w-10 h-10 text-primary" />
                             </div>
                             <h3 className="text-2xl font-serif text-foreground">Fernanda</h3>
                             <p className="text-xs uppercase tracking-widest text-primary font-bold">Cabeleireira e Terapeuta</p>
@@ -74,8 +75,8 @@ export default function SobrePage() {
 
                         {/* Gabriela */}
                         <div className="bg-card hover:shadow-lg transition-all duration-300 p-8 rounded-2xl border border-border/50 flex flex-col items-center text-center space-y-4 group">
-                            <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">
-                                💄
+                            <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+                                <Palette className="w-10 h-10 text-primary" />
                             </div>
                             <h3 className="text-2xl font-serif text-foreground">Gabriela</h3>
                             <p className="text-xs uppercase tracking-widest text-primary font-bold">Penteadora e Maquiadora</p>
@@ -95,22 +96,22 @@ export default function SobrePage() {
                     </div>
                     <div className="grid sm:grid-cols-3 gap-8 text-center">
                         <div className="space-y-4 p-6 hover:bg-background/50 rounded-xl transition-colors duration-300">
-                            <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center mx-auto shadow-sm text-3xl text-primary">
-                                🌿
+                            <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center mx-auto shadow-sm text-primary">
+                                <Leaf className="w-8 h-8" />
                             </div>
                             <h3 className="font-bold text-xl text-foreground">Autocuidado</h3>
                             <p className="text-muted-foreground">Um momento pensado exclusivamente para sua renovação pessoal e bem-estar.</p>
                         </div>
                         <div className="space-y-4 p-6 hover:bg-background/50 rounded-xl transition-colors duration-300">
-                            <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center mx-auto shadow-sm text-3xl text-primary">
-                                ✨
+                            <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center mx-auto shadow-sm text-primary">
+                                <Sparkles className="w-8 h-8" />
                             </div>
                             <h3 className="font-bold text-xl text-foreground">Personalização</h3>
                             <p className="text-muted-foreground">Serviços definidos em conjunto com você, respeitando sua essência.</p>
                         </div>
                         <div className="space-y-4 p-6 hover:bg-background/50 rounded-xl transition-colors duration-300">
-                            <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center mx-auto shadow-sm text-3xl text-primary">
-                                💖
+                            <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center mx-auto shadow-sm text-primary">
+                                <Heart className="w-8 h-8" />
                             </div>
                             <h3 className="font-bold text-xl text-foreground">Acolhimento</h3>
                             <p className="text-muted-foreground">Ambiente calmo, terapêutico e preparado para receber você.</p>
@@ -120,5 +121,5 @@ export default function SobrePage() {
             </section>
         </main>
     );
-    );
+
 }
