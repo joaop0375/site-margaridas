@@ -57,7 +57,7 @@ export default function SobrePage() {
                             <h3 className="text-2xl font-serif text-foreground">Fabi</h3>
                             <p className="text-xs uppercase tracking-widest text-primary font-bold">Designer de Sobrancelhas</p>
                             <p className="text-muted-foreground text-sm leading-relaxed">
-                                Atuava no mercado de luxo e encontrou na beleza um novo caminho. Traz precisão, sensibilidade e atenção aos detalhes.
+                                Atuava no mercado de luxo como vendedora, encontrou na beleza um novo caminho após a maternidade. Hoje é designer de sobrancelhas do Margaridas Beauty, trazendo precisão, sensibilidade e atenção aos detalhes em cada atendimento.
                             </p>
                         </div>
 
@@ -67,9 +67,9 @@ export default function SobrePage() {
                                 <Sparkles className="w-10 h-10 text-primary" />
                             </div>
                             <h3 className="text-2xl font-serif text-foreground">Fernanda</h3>
-                            <p className="text-xs uppercase tracking-widest text-primary font-bold">Cabeleireira e Terapeuta</p>
+                            <p className="text-xs uppercase tracking-widest text-primary font-bold">Cabeleireira e Terapeuta Capilar</p>
                             <p className="text-muted-foreground text-sm leading-relaxed">
-                                Com mais de 10 anos de experiência, enxerga no atendimento uma forma de cuidado e transformação com amor e dedicação.
+                                Atua há mais de 10 anos na área da beleza. Mãe de quatro filhos, sempre enxergou no atendimento uma forma de cuidado e transformação, exercendo sua profissão com amor e dedicação.
                             </p>
                         </div>
 
@@ -81,7 +81,7 @@ export default function SobrePage() {
                             <h3 className="text-2xl font-serif text-foreground">Gabriela</h3>
                             <p className="text-xs uppercase tracking-widest text-primary font-bold">Penteadora e Maquiadora</p>
                             <p className="text-muted-foreground text-sm leading-relaxed">
-                                Especialista em cabelos com curvatura, cresceu acompanhando a mãe e transformou o desejo de empreender em realidade.
+                                Filha de Fernanda, sempre teve o desejo de empreender. Cresceu acompanhando o trabalho da mãe, iniciou como auxiliar e hoje é penteadora, maquiadora e especialista em cabelos com curvatura. O nome Margaridas Beauty vem da loja de acessórios Três Margaridas, criada por Gabriela e suas irmãs, com o incentivo de Fernanda.
                             </p>
                         </div>
                     </div>

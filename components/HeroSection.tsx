@@ -13,22 +13,19 @@ export function HeroSection() {
                     <p className="text-muted-foreground text-lg md:text-xl max-w-[500px] leading-relaxed">
                         Atendimento personalizado com produtos veganos e exclusivos para o seu bem-estar.
                     </p>
-                    <Link href="https://wa.me/5599999999999" target="_blank" className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block">
+                    <Link href="https://wa.me/5561995919569?text=Ol%C3%A1%2C%20Margaridas%20Beauty%21%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block">
                         Agendar horário
                     </Link>
                 </div>
 
                 {/* Image Placeholder - resembling the soft girl image */}
                 <div className="md:w-1/2 flex justify-center relative">
-                    <div className="relative w-[300px] h-[400px] md:w-[400px] md:h-[500px] rounded-t-[100px] rounded-b-[0px] overflow-hidden shadow-2xl border-4 border-white/50">
-                        {/* In a real scenario, we'd use Next.js Image component here with a real asset. 
-                           For now, using a colored div or placeholder. 
-                        */}
-                        <div className="w-full h-full bg-muted/30 flex items-center justify-center text-muted-foreground">
-                            <span className="sr-only">Imagem da modelo</span>
-                            {/* Placeholder for the image */}
-                            <div className="absolute inset-0 bg-[#e6d0c2] opacity-20"></div>
-                        </div>
+                    <div className="relative w-[300px] h-[400px] md:w-[400px] md:h-[500px] rounded-t-[100px] rounded-b-[0px] overflow-hidden shadow-2xl border-4 border-white/50 bg-background/50 flex flex-col items-center justify-center p-6 md:p-12 hover:shadow-primary/20 transition-all duration-500">
+                        <img
+                            src="/logo.png"
+                            alt="Margaridas Beauty Sudoeste Logo"
+                            className="w-full h-auto max-h-full object-contain opacity-90 drop-shadow-sm scale-110"
+                        />
                     </div>
                     {/* Decorative Elements (Flowers/Leaves vibes) */}
                     <div className="absolute -top-10 -right-10 w-20 h-20 bg-secondary/20 rounded-full blur-2xl"></div>

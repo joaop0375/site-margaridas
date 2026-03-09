@@ -1,13 +1,26 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const BLOG_POSTS = [
+    {
+        id: 5,
+        title: "Lavagem Terapêutica: Muito Além de Lavar os Cabelos",
+        excerpt: "Descubra como a lavagem capilar se transforma em um verdadeiro ritual de cuidado e reconexão.",
+        date: "05 Mar, 2026",
+        category: "Terapia Capilar",
+        color: "bg-emerald-50",
+        slug: "lavagem-terapeutica",
+        image: "/Lavagem%20terap%C3%AAutica.png"
+    },
     {
         id: 1,
         title: "Tendências de Cabelo para 2026",
         excerpt: "Descubra os cortes e cores que vão dominar a próxima estação.",
         date: "28 Jan, 2026",
         category: "Cabelo",
-        color: "bg-rose-50"
+        color: "bg-rose-50",
+        slug: "tendencias-cabelo-2026",
+        image: "https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=2069&auto=format&fit=crop"
     },
     {
         id: 2,
@@ -15,23 +28,20 @@ const BLOG_POSTS = [
         excerpt: "Dicas essenciais para manter sua pele radiante e saudável o ano todo.",
         date: "25 Jan, 2026",
         category: "Pele",
-        color: "bg-amber-50"
+        color: "bg-amber-50",
+        slug: "skincare-segredo-pele-perfeita",
+        image: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=1974&auto=format&fit=crop"
     },
-    {
-        id: 3,
-        title: "Maquiagem Natural: O Novo Luxo",
-        excerpt: "Como realçar sua beleza natural com técnicas minimalistas.",
-        date: "20 Jan, 2026",
-        category: "Maquiagem",
-        color: "bg-stone-50"
-    },
+
     {
         id: 4,
         title: "Spa Day em Casa",
         excerpt: "5 passos simples para criar um ritual de relaxamento sem sair de casa.",
         date: "15 Jan, 2026",
         category: "Bem-estar",
-        color: "bg-teal-50"
+        color: "bg-teal-50",
+        slug: "spa-day-em-casa",
+        image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop"
     }
 ];
 
@@ -47,25 +57,42 @@ export default function BlogPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {BLOG_POSTS.map((post) => (
-                    <div key={post.id} className="flex flex-col border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow bg-card">
-                        <div className={`h-48 w-full ${post.color} relative`}>
-                            {/* Placeholder image */}
-                            <div className="absolute inset-0 flex items-center justify-center opacity-10 font-serif text-3xl">MB</div>
-                        </div>
-                        <div className="p-6 flex flex-col flex-1">
-                            <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
-                                <span className="font-medium px-2 py-1 bg-secondary rounded-full">{post.category}</span>
-                                <span>{post.date}</span>
+                    <div key={post.id} className="flex flex-col border border-border/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card group">
+                        <Link href={`/blog/${post.slug}`} className="block">
+                            <div className={`h-56 w-full ${post.color} relative overflow-hidden`}>
+                                {post.image.startsWith('/') ? (
+                                    <Image
+                                        src={post.image}
+                                        alt={post.title}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    />
+                                ) : (
+                                    <img
+                                        src={post.image}
+                                        alt={post.title}
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    />
+                                )}
                             </div>
-                            <h2 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                                <Link href="#" className="hover:underline">{post.title}</Link>
+                        </Link>
+                        <div className="p-6 flex flex-col flex-1">
+                            <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
+                                <span className="font-semibold px-3 py-1 bg-secondary rounded-full text-secondary-foreground">{post.category}</span>
+                                <span className="font-medium">{post.date}</span>
+                            </div>
+                            <h2 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors leading-tight">
+                                <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                             </h2>
-                            <p className="text-muted-foreground text-sm flex-1">
+                            <p className="text-muted-foreground text-sm flex-1 leading-relaxed mb-4">
                                 {post.excerpt}
                             </p>
-                            <div className="mt-4 pt-4 border-t">
-                                <Link href="#" className="text-sm font-medium text-primary hover:underline">
+                            <div className="mt-auto pt-4 border-t border-border/50">
+                                <Link href={`/blog/${post.slug}`} className="text-sm font-bold text-primary hover:underline flex items-center">
                                     Ler artigo completo
+                                    <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
                                 </Link>
                             </div>
                         </div>

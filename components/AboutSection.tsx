@@ -5,12 +5,12 @@ export function AboutSection() {
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     {/* Image Section */}
                     <div className="relative order-2 md:order-1">
-                        <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-muted relative shadow-xl transform md:rotate-2 hover:rotate-0 transition-all duration-500">
-                            {/* Placeholder for the team photo */}
-                            <div className="absolute inset-0 bg-[#D4AF37]/10"></div>
-                            <div className="flex items-center justify-center h-full text-muted-foreground">
-                                Foto da Equipe
-                            </div>
+                        <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-background/50 relative shadow-xl transform md:rotate-2 hover:rotate-0 transition-all duration-500 flex flex-col items-center justify-center p-8 md:p-16 border border-border/10">
+                            <img
+                                src="/logo.png"
+                                alt="Logo Margaridas Beauty"
+                                className="w-full h-auto max-h-full object-contain opacity-90 scale-110"
+                            />
                         </div>
                         {/* Decorative elements */}
                         <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-secondary/30 rounded-full blur-2xl -z-10"></div>

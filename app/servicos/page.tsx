@@ -1,4 +1,4 @@
-import { Zap, Sparkles, Scissors, Heart } from "lucide-react";
+import { Sparkles, Scissors, Heart, MessageCircle } from "lucide-react";
 
 const SERVICES = [
     {
@@ -53,35 +53,55 @@ export default function ServicosPage() {
             <div className="text-center mb-16 space-y-4">
                 <h1 className="text-4xl font-bold tracking-tight lg:text-5xl font-serif text-primary">Nossos Serviços</h1>
                 <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                    Tabela de preços 2026. Oferecemos uma variedade de serviços especiais para realçar sua beleza natural.
+                    Tabela de preços 2026. Clique no serviço desejado para iniciar um agendamento rápido e personalizado via WhatsApp.
                 </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
                 {SERVICES.map((cat, idx) => (
-                    <div key={idx} className="bg-card border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
-                        <div className="p-6 bg-secondary/30 flex items-center gap-3 border-b">
-                            <cat.icon className="w-6 h-6 text-primary" />
-                            <h2 className="font-semibold text-xl text-primary">{cat.category}</h2>
+                    <div key={idx} className="bg-card border rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group/card">
+                        <div className="p-6 bg-secondary/30 flex items-center gap-3 border-b border-border/50 group-hover/card:bg-secondary/50 transition-colors">
+                            <div className="p-2 bg-background rounded-full shadow-sm">
+                                <cat.icon className="w-6 h-6 text-primary" />
+                            </div>
+                            <h2 className="font-semibold text-xl text-primary font-serif">{cat.category}</h2>
                         </div>
-                        <div className="p-6 space-y-4 flex-grow">
-                            {cat.items.map((item, i) => (
-                                <div key={i} className="flex justify-between items-start border-b border-dashed border-border/60 pb-2 last:border-0 last:pb-0">
-                                    <div className="max-w-[70%]">
-                                        <h3 className="font-medium text-foreground text-sm leading-tight">{item.name}</h3>
-                                    </div>
-                                    <span className="font-semibold text-primary text-xs whitespace-nowrap">{item.price}</span>
-                                </div>
-                            ))}
+                        <div className="p-4 flex-grow space-y-1">
+                            {cat.items.map((item, i) => {
+                                const wpMessage = encodeURIComponent(`Olá, Margaridas Beauty! Gostaria de agendar ou saber mais sobre o serviço: *${item.name}* (${item.price}).`);
+                                const wpLink = `https://wa.me/5561995919569?text=${wpMessage}`;
+
+                                return (
+                                    <a
+                                        key={i}
+                                        href={wpLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group flex justify-between items-center p-3 rounded-lg hover:bg-primary/5 hover:shadow-sm transition-all border border-transparent hover:border-primary/20"
+                                        title={`Agendar ${item.name}`}
+                                    >
+                                        <div className="max-w-[70%]">
+                                            <h3 className="font-medium text-foreground text-sm leading-tight group-hover:text-primary transition-colors">{item.name}</h3>
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                            <span className="font-semibold text-primary text-xs whitespace-nowrap">{item.price}</span>
+                                            <div className="w-8 h-8 shrink-0 rounded-full bg-primary/10 flex items-center justify-center opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 group-hover:bg-primary sm:flex hidden">
+                                                <MessageCircle className="w-4 h-4 text-primary group-hover:text-primary-foreground" />
+                                            </div>
+                                        </div>
+                                    </a>
+                                );
+                            })}
                         </div>
-                        <div className="p-4 bg-muted/20 text-center border-t">
+                        <div className="p-4 bg-muted/20 text-center border-t border-border/50">
                             <a
-                                href="https://wa.me/5561995919569?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20servi%C3%A7o."
+                                href={`https://wa.me/5561995919569?text=${encodeURIComponent(`Olá, Margaridas Beauty! Gostaria de tirar uma dúvida sobre os serviços de ${cat.category.toLowerCase()}.`)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-sm font-medium text-primary hover:underline"
+                                className="text-sm font-medium text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-2"
                             >
-                                Agendar no WhatsApp
+                                <MessageCircle className="w-4 h-4" />
+                                Dúvidas sobre {cat.category.toLowerCase()}?
                             </a>
                         </div>
                     </div>
