@@ -37,9 +37,8 @@ const SERVICES = [
         category: "Mãos & Pés",
         icon: Heart,
         items: [
-            { name: "Manicure e Pedicure", price: "R$ 80,00" },
+            { name: "Manicure e Pedicure", price: "R$ 88,00" },
             { name: "Adicional Francesinha", price: "R$ 5,00" },
-            { name: "Adicional Blindagem", price: "R$ 80,00" },
             { name: "Plástica dos pés", price: "R$ 100,00" },
             { name: "Escalda pés", price: "R$ 35,00" },
             { name: "Lavagem terapêutica", price: "R$ 70,00" },

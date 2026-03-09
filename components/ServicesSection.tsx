@@ -6,8 +6,8 @@ export function ServicesSection() {
     const services = [
         { title: "Unhas", description: "Design e cuidado", icon: Scissors, image: "/servico-unhas.jpg" },
         { title: "Maquiagem", description: "Realce sua beleza", icon: Palette, image: "/maquiagem natural.jpg" },
-        { title: "Bloom Design", description: "Sobrancelhas perfeitas", icon: Sparkles, image: "/servico-sobrancelha.jpg" },
-        { title: "Cabelo", description: "Corte e tratamento", icon: User, image: "/servico-cabelo.jpg" },
+        { title: "Sobrancelhas", description: "Brow Lamination e Lash Lifting", icon: Sparkles, image: "/servico-sobrancelha.jpg" },
+        { title: "Penteado", description: "Corte e tratamento", icon: User, image: "/servico-cabelo.jpg" },
     ];
 
     return (
