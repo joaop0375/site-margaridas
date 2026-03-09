@@ -15,10 +15,10 @@ const portfolioItems = [
     { src: "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-012.jpg", title: "Cuidado e Esmaltação", category: "Unha" },
     { src: "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-022.jpg", title: "Color Bloom", category: "Sobrancelha" },
     { src: "/images/portfolio/margaridas-beauty-sudoeste-tratamento-capilar-vegano-007.jpg", title: "Tratamento Vegano", category: "Unha" },
-    { src: "/images/portfolio/margaridas-beauty-sudoeste-estetica-sudoeste-top-master-010.jpg", title: "Serviço Top Master", category: "Cabelo" },
-    { src: "/images/portfolio/margaridas-beauty-sudoeste-salao-de-beleza-brasilia-024.jpg", title: "Beleza Iluminada", category: "Sobrancelha" },
-    { src: "/images/portfolio/margaridas-beauty-sudoeste-margaridas-beauty-sudoeste-005.jpg", title: "Antes e Depois", category: "Cabelo" },
-    { src: "/images/portfolio/margaridas-beauty-sudoeste-margaridas-beauty-sudoeste-015.jpg", title: "Produção Completa", category: "Cabelo" },
+    { src: "/images/portfolio/margaridas-beauty-sudoeste-estetica-sudoeste-top-master-010.jpg", title: "Escova Modelada", category: "Cabelo" },
+    { src: "/images/portfolio/margaridas-beauty-sudoeste-salao-de-beleza-brasilia-024.jpg", title: "Bloom Brow", category: "Sobrancelha" },
+    { src: "/images/portfolio/margaridas-beauty-sudoeste-margaridas-beauty-sudoeste-005.jpg", title: "Antes e Depois (realinhamento)", category: "Cabelo" },
+    { src: "/images/portfolio/margaridas-beauty-sudoeste-margaridas-beauty-sudoeste-015.jpg", title: "Morena iluminado", category: "Cabelo" },
 ];
 
 export default function PortfolioPage() {
