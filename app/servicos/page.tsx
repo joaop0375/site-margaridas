@@ -17,6 +17,7 @@ const SERVICES = [
             { name: "Gloss Express", price: "R$ 180,00" },
             { name: "Retoque de raiz (coloração cliente)", price: "R$ 120,00" },
             { name: "Penteado", price: "A partir de R$ 120,00" },
+            { name: "Lavagem terapêutica", price: "R$ 70,00" },
         ]
     },
     {
@@ -41,7 +42,6 @@ const SERVICES = [
             { name: "Adicional Francesinha", price: "R$ 5,00" },
             { name: "Plástica dos pés", price: "R$ 100,00" },
             { name: "Escalda pés", price: "R$ 35,00" },
-            { name: "Lavagem terapêutica", price: "R$ 70,00" },
         ]
     }
 ];
