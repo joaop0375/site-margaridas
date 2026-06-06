@@ -1,6 +1,49 @@
-import { Sparkles, Scissors, Heart, MessageCircle } from "lucide-react";
+import { Sparkles, Scissors, Heart, MessageCircle, Gift } from "lucide-react";
 
-const SERVICES = [
+type ServiceItem = {
+    name: string;
+    price: string;
+    description?: string;
+};
+
+type ServiceCategory = {
+    category: string;
+    icon: React.ElementType;
+    items: ServiceItem[];
+};
+
+const SERVICES: ServiceCategory[] = [
+    {
+        category: "Pacotes",
+        icon: Gift,
+        items: [
+            { 
+                name: "Bem-Me-Quer", 
+                price: "R$ 699,00",
+                description: "Pacote voltado para o autocuidado, onde a cliente tem direito a 2 hidratações, 1 nutrição e uma reconstrução."
+            },
+            { 
+                name: "Bem-Me-Quer", 
+                price: "R$ 760,00",
+                description: "Pacote voltado para o autocuidado, onde a cliente tem direito a 1 detox, 1 hidratação, 1 nutrição e 1 reconstrução. Cortesia: 1 mini kit home care (shampoo + condicionador)"
+            },
+            { 
+                name: "Pérola", 
+                price: "R$ 350,00",
+                description: "5 escovas no mesmo mês + 1 hidratação de cortesia."
+            },
+            { 
+                name: "Realinhamento terapêutico cabelo curto", 
+                price: "R$ 790,00",
+                description: "Protocolo voltado para o cuidado pré e pós realinhamento."
+            },
+            { 
+                name: "Realinhamento terapêutico cabelo longo", 
+                price: "R$ 840,00",
+                description: "Protocolo voltado para o cuidado pré e pós realinhamento."
+            }
+        ]
+    },
     {
         category: "Cabelos",
         icon: Scissors,
@@ -81,6 +124,9 @@ export default function ServicosPage() {
                                     >
                                         <div className="max-w-[70%]">
                                             <h3 className="font-medium text-foreground text-sm leading-tight group-hover:text-primary transition-colors">{item.name}</h3>
+                                            {item.description && (
+                                                <p className="text-xs text-muted-foreground mt-1 leading-snug">{item.description}</p>
+                                            )}
                                         </div>
                                         <div className="flex items-center gap-3">
                                             <span className="font-semibold text-primary text-xs whitespace-nowrap">{item.price}</span>
