@@ -13,7 +13,7 @@ const portfolioItems = [
     { src: "/images/portfolio/margaridas-beauty-sudoeste-design-de-sobrancelhas-df-006.jpg", title: "Corte", category: "Cabelo" },
     { src: "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-002.jpg", title: "Manicure tradicional", category: "Unhas" },
     { src: "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-012.jpg", title: "Pedicure", category: "Unhas" },
-    { src: "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-022.jpg", title: "Penteado", category: "Cabelo" },
+    { src: "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-022.jpg", title: "Design de Sobrancelhas", category: "Sobrancelhas" },
     { src: "/images/portfolio/margaridas-beauty-sudoeste-estetica-sudoeste-top-master-010.jpg", title: "Escova modelada", category: "Cabelo" },
     { src: "/images/portfolio/margaridas-beauty-sudoeste-salao-de-beleza-brasilia-024.jpg", title: "Escova lisa", category: "Cabelo" },
     { src: "/images/portfolio/margaridas-beauty-sudoeste-margaridas-beauty-sudoeste-005.jpg", title: "Realinhamento (Antes e Depois)", category: "Cabelo" },
