@@ -19,11 +19,6 @@ const SERVICES: ServiceCategory[] = [
         items: [
             { 
                 name: "Bem-Me-Quer", 
-                price: "R$ 699,00",
-                description: "Pacote voltado para o autocuidado, onde a cliente tem direito a 2 hidratações, 1 nutrição e uma reconstrução."
-            },
-            { 
-                name: "Bem-Me-Quer", 
                 price: "R$ 760,00",
                 description: "Pacote voltado para o autocuidado, onde a cliente tem direito a 1 detox, 1 hidratação, 1 nutrição e 1 reconstrução. Cortesia: 1 mini kit home care (shampoo + condicionador)"
             },
