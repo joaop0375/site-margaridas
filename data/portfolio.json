@@ -1,0 +1,76 @@
+[
+    {
+        "title": "Loiro Iluminado",
+        "category": "Coloração",
+        "images": [
+            "/images/portfolio/loiro-iluminado.jpg",
+            "/images/portfolio/portfolio-1.jpg"
+        ]
+    },
+    {
+        "title": "Morena Iluminada",
+        "category": "Coloração",
+        "images": [
+            "/images/portfolio/morena-iluminada.jpg",
+            "/images/portfolio/portfolio-2.jpg"
+        ]
+    },
+    {
+        "title": "Gloss Express",
+        "category": "Coloração",
+        "images": [
+            "/images/portfolio/margaridas-beauty-sudoeste-gloss-express-ng-de-france-009.jpg",
+            "/images/portfolio/portfolio-3.jpg"
+        ]
+    },
+    {
+        "title": "Realinhamento Capilar",
+        "category": "Cabelo - Escova",
+        "images": [
+            "/images/portfolio/margaridas-beauty-sudoeste-realinhamento-capilar-vegano-001.jpg",
+            "/images/portfolio/portfolio-4.jpg"
+        ]
+    },
+    {
+        "title": "Terapia Capilar",
+        "category": "Cabelo - Escova",
+        "images": [
+            "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-002.jpg",
+            "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-012.jpg",
+            "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-022.jpg",
+            "/images/portfolio/margaridas-beauty-sudoeste-tratamento-capilar-vegano-007.jpg"
+        ]
+    },
+    {
+        "title": "Design de Sobrancelhas",
+        "category": "Sobrancelhas",
+        "images": [
+            "/images/portfolio/margaridas-beauty-sudoeste-design-de-sobrancelhas-df-006.jpg",
+            "/images/portfolio/portfolio-5.jpg"
+        ]
+    },
+    {
+        "title": "Lash Lifting",
+        "category": "Sobrancelhas",
+        "images": [
+            "/images/portfolio/margaridas-beauty-sudoeste-estetica-sudoeste-top-master-010.jpg",
+            "/images/portfolio/portfolio-1.jpg"
+        ]
+    },
+    {
+        "title": "Brow Lamination",
+        "category": "Sobrancelhas",
+        "images": [
+            "/images/portfolio/margaridas-beauty-sudoeste-salao-de-beleza-brasilia-024.jpg",
+            "/images/portfolio/portfolio-3.jpg"
+        ]
+    },
+    {
+        "title": "Produção",
+        "category": "Produção (Penteado, Make)",
+        "images": [
+            "/images/portfolio/margaridas-beauty-sudoeste-margaridas-beauty-sudoeste-005.jpg",
+            "/images/portfolio/margaridas-beauty-sudoeste-margaridas-beauty-sudoeste-015.jpg"
+        ]
+    }
+]

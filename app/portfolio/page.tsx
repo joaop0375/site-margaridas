@@ -1,88 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const portfolioItems = [
-    {
-        title: "Loiro Iluminado",
-        category: "Coloração",
-        images: [
-            "/images/portfolio/loiro-iluminado.jpg",
-            "/images/portfolio/portfolio-1.jpg"
-        ]
-    },
-    {
-        title: "Morena Iluminada",
-        category: "Coloração",
-        images: [
-            "/images/portfolio/morena-iluminada.jpg",
-            "/images/portfolio/portfolio-2.jpg"
-        ]
-    },
-    {
-        title: "Gloss Express",
-        category: "Coloração",
-        images: [
-            "/images/portfolio/margaridas-beauty-sudoeste-gloss-express-ng-de-france-009.jpg",
-            "/images/portfolio/portfolio-3.jpg"
-        ]
-    },
-    {
-        title: "Realinhamento Capilar",
-        category: "Cabelo - Escova",
-        images: [
-            "/images/portfolio/margaridas-beauty-sudoeste-realinhamento-capilar-vegano-001.jpg",
-            "/images/portfolio/portfolio-4.jpg"
-        ]
-    },
-    {
-        title: "Terapia Capilar",
-        category: "Cabelo - Escova",
-        images: [
-            "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-002.jpg",
-            "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-012.jpg",
-            "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-022.jpg",
-            "/images/portfolio/margaridas-beauty-sudoeste-tratamento-capilar-vegano-007.jpg"
-        ]
-    },
-    {
-        title: "Design de Sobrancelhas",
-        category: "Sobrancelhas",
-        images: [
-            "/images/portfolio/margaridas-beauty-sudoeste-design-de-sobrancelhas-df-006.jpg",
-            "/images/portfolio/portfolio-5.jpg"
-        ]
-    },
-    {
-        title: "Lash Lifting",
-        category: "Sobrancelhas",
-        images: [
-            "/images/portfolio/margaridas-beauty-sudoeste-estetica-sudoeste-top-master-010.jpg",
-            "/images/portfolio/portfolio-1.jpg"
-        ]
-    },
-    {
-        title: "Brow Lamination",
-        category: "Sobrancelhas",
-        images: [
-            "/images/portfolio/margaridas-beauty-sudoeste-salao-de-beleza-brasilia-024.jpg",
-            "/images/portfolio/portfolio-3.jpg"
-        ]
-    },
-    {
-        title: "Produção",
-        category: "Produção (Penteado, Make)",
-        images: [
-            "/images/portfolio/margaridas-beauty-sudoeste-margaridas-beauty-sudoeste-005.jpg",
-            "/images/portfolio/margaridas-beauty-sudoeste-margaridas-beauty-sudoeste-015.jpg"
-        ]
-    }
-];
+type PortfolioItem = {
+    title: string;
+    category: string;
+    images: string[];
+};
 
-function ServiceCard({ item }: { item: typeof portfolioItems[0] }) {
+function ServiceCard({ item }: { item: PortfolioItem }) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const nextImage = (e: React.MouseEvent) => {
@@ -161,6 +90,23 @@ function ServiceCard({ item }: { item: typeof portfolioItems[0] }) {
 
 export default function PortfolioPage() {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+    const [portfolioItems, setPortfolioItems] = useState<PortfolioItem[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchItems = async () => {
+            try {
+                const res = await fetch("/api/portfolio");
+                const data = await res.json();
+                setPortfolioItems(data);
+            } catch (error) {
+                console.error("Failed to fetch portfolio items:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchItems();
+    }, []);
 
     // Identificar as categorias únicas e a capa para cada uma
     const categories = Array.from(new Set(portfolioItems.map(item => item.category)));
