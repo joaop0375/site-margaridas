@@ -49,7 +49,7 @@ export default function ContatoPage() {
                         </div>
                         <div>
                             <h3 className="font-bold text-lg text-primary">Horário de Funcionamento</h3>
-                            <p className="text-muted-foreground">Segunda a Sábado: 09h às 19h<br />Domingo: Fechado</p>
+                            <p className="text-muted-foreground">Segunda a Sábado: 08h às 19h (mediante agendamento)<br />Domingo: Fechado</p>
                         </div>
                     </div>
                 </div>

@@ -2,22 +2,162 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const portfolioItems = [
-    { src: "/images/portfolio/loiro-iluminado.jpg", title: "Loiro Iluminado", category: "Coloração" },
-    { src: "/images/portfolio/morena-iluminada.jpg", title: "Morena Iluminada", category: "Coloração" },
-    { src: "/images/portfolio/margaridas-beauty-sudoeste-gloss-express-ng-de-france-009.jpg", title: "Gloss Express", category: "Coloração" },
-    { src: "/images/portfolio/margaridas-beauty-sudoeste-realinhamento-capilar-vegano-001.jpg", title: "Realinhamento Capilar", category: "Cabelo" },
-    { src: "/images/portfolio/margaridas-beauty-sudoeste-design-de-sobrancelhas-df-006.jpg", title: "Design de Sobrancelhas", category: "Sobrancelhas" },
-    { src: "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-002.jpg", title: "Terapia Capilar", category: "Cabelo" },
-    { src: "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-012.jpg", title: "Terapia Capilar", category: "Cabelo" },
-    { src: "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-022.jpg", title: "Design de Sobrancelhas", category: "Sobrancelhas" },
-    { src: "/images/portfolio/margaridas-beauty-sudoeste-estetica-sudoeste-top-master-010.jpg", title: "Lash Lifting", category: "Sobrancelhas" },
-    { src: "/images/portfolio/margaridas-beauty-sudoeste-salao-de-beleza-brasilia-024.jpg", title: "Brow Lamination", category: "Sobrancelhas" },
-    { src: "/images/portfolio/margaridas-beauty-sudoeste-margaridas-beauty-sudoeste-005.jpg", title: "Produção", category: "Cabelo" },
+    {
+        title: "Loiro Iluminado",
+        category: "Coloração",
+        images: [
+            "/images/portfolio/loiro-iluminado.jpg",
+            "/images/portfolio/portfolio-1.jpg"
+        ]
+    },
+    {
+        title: "Morena Iluminada",
+        category: "Coloração",
+        images: [
+            "/images/portfolio/morena-iluminada.jpg",
+            "/images/portfolio/portfolio-2.jpg"
+        ]
+    },
+    {
+        title: "Gloss Express",
+        category: "Coloração",
+        images: [
+            "/images/portfolio/margaridas-beauty-sudoeste-gloss-express-ng-de-france-009.jpg",
+            "/images/portfolio/portfolio-3.jpg"
+        ]
+    },
+    {
+        title: "Realinhamento Capilar",
+        category: "Cabelo - Escova",
+        images: [
+            "/images/portfolio/margaridas-beauty-sudoeste-realinhamento-capilar-vegano-001.jpg",
+            "/images/portfolio/portfolio-4.jpg"
+        ]
+    },
+    {
+        title: "Terapia Capilar",
+        category: "Cabelo - Escova",
+        images: [
+            "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-002.jpg",
+            "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-012.jpg",
+            "/images/portfolio/margaridas-beauty-sudoeste-terapia-capilar-brasilia-022.jpg",
+            "/images/portfolio/margaridas-beauty-sudoeste-tratamento-capilar-vegano-007.jpg"
+        ]
+    },
+    {
+        title: "Design de Sobrancelhas",
+        category: "Sobrancelhas",
+        images: [
+            "/images/portfolio/margaridas-beauty-sudoeste-design-de-sobrancelhas-df-006.jpg",
+            "/images/portfolio/portfolio-5.jpg"
+        ]
+    },
+    {
+        title: "Lash Lifting",
+        category: "Sobrancelhas",
+        images: [
+            "/images/portfolio/margaridas-beauty-sudoeste-estetica-sudoeste-top-master-010.jpg",
+            "/images/portfolio/portfolio-1.jpg"
+        ]
+    },
+    {
+        title: "Brow Lamination",
+        category: "Sobrancelhas",
+        images: [
+            "/images/portfolio/margaridas-beauty-sudoeste-salao-de-beleza-brasilia-024.jpg",
+            "/images/portfolio/portfolio-3.jpg"
+        ]
+    },
+    {
+        title: "Produção",
+        category: "Produção (Penteado, Make)",
+        images: [
+            "/images/portfolio/margaridas-beauty-sudoeste-margaridas-beauty-sudoeste-005.jpg",
+            "/images/portfolio/margaridas-beauty-sudoeste-margaridas-beauty-sudoeste-015.jpg"
+        ]
+    }
 ];
+
+function ServiceCard({ item }: { item: typeof portfolioItems[0] }) {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const nextImage = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setCurrentImageIndex((prev) => (prev + 1) % item.images.length);
+    };
+
+    const prevImage = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setCurrentImageIndex((prev) => (prev - 1 + item.images.length) % item.images.length);
+    };
+
+    return (
+        <div className="group relative flex flex-col gap-3 md:gap-4">
+            <div className="relative w-full aspect-[4/5] bg-muted/10 rounded-2xl overflow-hidden border border-border/50 shadow-sm group-hover:shadow-xl group-hover:border-primary/30 transition-all duration-500">
+                <Image
+                    src={item.images[currentImageIndex]}
+                    alt={`${item.title} - Imagem ${currentImageIndex + 1}`}
+                    fill
+                    loading="lazy"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-contain w-full h-full p-1 sm:p-2 transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                
+                {/* Navigation Arrows (only show if multiple images exist) */}
+                {item.images.length > 1 && (
+                    <>
+                        <button
+                            onClick={prevImage}
+                            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 z-10"
+                            aria-label="Imagem anterior"
+                        >
+                            <ChevronLeft className="w-5 h-5" />
+                        </button>
+                        <button
+                            onClick={nextImage}
+                            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 z-10"
+                            aria-label="Próxima imagem"
+                        >
+                            <ChevronRight className="w-5 h-5" />
+                        </button>
+                        
+                        {/* Dots Indicators */}
+                        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10 bg-black/20 px-2 py-1 rounded-full backdrop-blur-xs">
+                            {item.images.map((_, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setCurrentImageIndex(idx);
+                                    }}
+                                    className={`w-1.5 h-1.5 rounded-full transition-all ${
+                                        idx === currentImageIndex ? "bg-white scale-125" : "bg-white/55 hover:bg-white/80"
+                                    }`}
+                                    aria-label={`Ir para imagem ${idx + 1}`}
+                                />
+                            ))}
+                        </div>
+                    </>
+                )}
+                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            </div>
+            <div className="px-1 md:px-2 flex justify-between items-center">
+                <h3 className="font-serif text-xl md:text-2xl text-foreground font-semibold group-hover:text-primary transition-colors">
+                    {item.title}
+                </h3>
+                {item.images.length > 1 && (
+                    <span className="text-xs text-muted-foreground bg-secondary/50 px-2 py-0.5 rounded-md font-medium shrink-0">
+                        {currentImageIndex + 1}/{item.images.length} fotos
+                    </span>
+                )}
+            </div>
+        </div>
+    );
+}
 
 export default function PortfolioPage() {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -26,11 +166,12 @@ export default function PortfolioPage() {
     const categories = Array.from(new Set(portfolioItems.map(item => item.category)));
 
     const categoryCards = categories.map(cat => {
-        const coverItem = portfolioItems.find(item => item.category === cat);
-        const itemCount = portfolioItems.filter(item => item.category === cat).length;
+        const itemsInCat = portfolioItems.filter(item => item.category === cat);
+        const coverItem = itemsInCat[0];
+        const itemCount = itemsInCat.length;
         return {
             title: cat,
-            src: coverItem?.src || "",
+            src: coverItem?.images[0] || "",
             count: itemCount
         };
     });
@@ -114,7 +255,7 @@ export default function PortfolioPage() {
                                     <div className="transform translate-y-0 md:translate-y-2 group-hover:translate-y-0 transition-all duration-300">
                                         <h3 className="font-serif text-2xl sm:text-3xl text-white font-semibold mb-2 sm:mb-3">{cat.title}</h3>
                                         <span className="inline-flex items-center px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-primary text-primary-foreground text-[10px] md:text-xs font-bold uppercase tracking-widest backdrop-blur-sm shadow-lg">
-                                            {cat.count} Projeto{cat.count !== 1 && "s"}
+                                            {cat.count} serviço{cat.count !== 1 && "s"}
                                         </span>
                                     </div>
                                 </div>
@@ -128,25 +269,11 @@ export default function PortfolioPage() {
             {selectedCategory && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12 animate-in slide-in-from-bottom-8 fade-in duration-700">
                     {displayedPhotos.map((item, index) => (
-                        <div key={index} className="group relative flex flex-col gap-3 md:gap-4">
-                            <div className="relative w-full aspect-[4/5] bg-muted/10 rounded-2xl overflow-hidden border border-border/50 shadow-sm group-hover:shadow-xl group-hover:border-primary/30 transition-all duration-500">
-                                <Image
-                                    src={item.src}
-                                    alt={item.title}
-                                    fill
-                                    loading="lazy"
-                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                    className="object-contain w-full h-full p-1 sm:p-2 transition-transform duration-700 group-hover:scale-[1.03]"
-                                />
-                                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                            </div>
-                            <div className="px-1 md:px-2">
-                                <h3 className="font-serif text-xl md:text-2xl text-foreground font-semibold group-hover:text-primary transition-colors">{item.title}</h3>
-                            </div>
-                        </div>
+                        <ServiceCard key={index} item={item} />
                     ))}
                 </div>
             )}
         </main>
     );
 }
+
