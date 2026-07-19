@@ -14,7 +14,7 @@ export function Navbar() {
             <div className="container flex h-20 items-center justify-between px-4">
                 <Link href="/" className="mr-6 flex items-center space-x-2">
                     <div className="relative h-16 w-16">
-                        <Image src="/logo.png" alt="Margaridas Beauty Logo" fill className="object-contain" />
+                        <Image src="/logo.png" alt="Margaridas Beauty Logo" fill sizes="64px" className="object-contain" />
                     </div>
                     <div className="flex flex-col">
                         <span className="font-serif text-xl font-bold text-primary tracking-tight leading-none">

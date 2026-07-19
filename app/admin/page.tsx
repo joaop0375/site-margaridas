@@ -28,7 +28,7 @@ export default function AdminPage() {
     const fetchItems = async () => {
         setLoading(true);
         try {
-            const res = await fetch("/api/portfolio");
+            const res = await fetch(`/api/portfolio?t=${Date.now()}`);
             const data = await res.json();
             setItems(data);
         } catch (error) {
@@ -82,8 +82,12 @@ export default function AdminPage() {
             });
             const data = await res.json();
             if (data.url) {
-                const newItems = [...items];
-                newItems[itemIndex].images.push(data.url);
+                const newItems = items.map((item, idx) => {
+                    if (idx === itemIndex) {
+                        return { ...item, images: [...item.images, data.url] };
+                    }
+                    return item;
+                });
                 await saveItems(newItems);
             }
         } catch (error) {
@@ -104,8 +108,12 @@ export default function AdminPage() {
                 method: "DELETE",
             });
             
-            const newItems = [...items];
-            newItems[itemIndex].images.splice(imageIndex, 1);
+            const newItems = items.map((item, idx) => {
+                if (idx === itemIndex) {
+                    return { ...item, images: item.images.filter((_, imgIdx) => imgIdx !== imageIndex) };
+                }
+                return item;
+            });
             await saveItems(newItems);
         } catch (error) {
             console.error("Delete failed", error);
@@ -184,6 +192,7 @@ export default function AdminPage() {
                                             src={img}
                                             alt=""
                                             fill
+                                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
                                             className="object-cover"
                                         />
                                         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">

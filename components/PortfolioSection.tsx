@@ -36,6 +36,7 @@ export function PortfolioSection() {
                                     src={item.src}
                                     alt={item.title}
                                     fill
+                                    sizes="(max-width: 768px) 100vw, 33vw"
                                     className="object-contain p-2 transition-transform duration-700 group-hover:scale-[1.02]"
                                 />
                                 <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
