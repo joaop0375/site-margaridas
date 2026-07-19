@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+import { supabase } from '@/lib/supabase';
 
 export async function POST(request: Request) {
     try {
@@ -14,13 +13,23 @@ export async function POST(request: Request) {
         const buffer = Buffer.from(await file.arrayBuffer());
         const filename = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
         
-        const uploadDir = path.join(process.cwd(), 'public', 'images', 'portfolio');
-        await fs.mkdir(uploadDir, { recursive: true });
-        
-        const filePath = path.join(uploadDir, filename);
-        await fs.writeFile(filePath, buffer);
+        const { data, error } = await supabase.storage
+            .from('images')
+            .upload(filename, buffer, {
+                contentType: file.type || 'image/jpeg',
+                upsert: true
+            });
 
-        return NextResponse.json({ url: `/images/portfolio/${filename}` });
+        if (error) {
+            console.error('Supabase upload error:', error);
+            throw error;
+        }
+
+        const { data: { publicUrl } } = supabase.storage
+            .from('images')
+            .getPublicUrl(filename);
+
+        return NextResponse.json({ url: publicUrl });
     } catch (error) {
         console.error('Upload error:', error);
         return NextResponse.json({ error: 'Upload failed' }, { status: 500 });
@@ -30,14 +39,32 @@ export async function POST(request: Request) {
 export async function DELETE(request: Request) {
     try {
         const { searchParams } = new URL(request.url);
-        const imagePath = searchParams.get('path');
+        const imageUrl = searchParams.get('path');
 
-        if (!imagePath || !imagePath.startsWith('/images/portfolio/')) {
+        if (!imageUrl) {
             return NextResponse.json({ error: 'Invalid path' }, { status: 400 });
         }
+        
+        // Extract filename from the URL if it's a Supabase URL, or just take the basename
+        let filename = imageUrl;
+        if (imageUrl.includes('/storage/v1/object/public/images/')) {
+            const parts = imageUrl.split('/storage/v1/object/public/images/');
+            filename = parts[1].split('?')[0]; // remove query params if any
+        } else if (imageUrl.startsWith('/images/portfolio/')) {
+            // fallback in case they delete old local images from before the migration
+            // although they might not be able to delete them from supabase if they are not there, 
+            // but we can try ignoring the prefix
+            filename = imageUrl.replace('/images/portfolio/', '');
+        }
 
-        const fullPath = path.join(process.cwd(), 'public', imagePath.split('?')[0]);
-        await fs.unlink(fullPath);
+        const { error } = await supabase.storage
+            .from('images')
+            .remove([filename]);
+
+        if (error) {
+            console.error('Supabase delete error:', error);
+            throw error;
+        }
 
         return NextResponse.json({ success: true });
     } catch (error) {

@@ -149,7 +149,7 @@ export default function AdminPage() {
 
             {loading && (
                 <div className="fixed inset-0 bg-background/50 backdrop-blur-sm z-50 flex items-center justify-center">
-                    <div className="bg-card px-6 py-4 rounded-lg shadow-lg border font-medium">Salvando alterações...</div>
+                    <div className="bg-card px-6 py-4 rounded-lg shadow-lg border font-medium">Processando na nuvem...</div>
                 </div>
             )}
 
